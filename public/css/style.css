@@ -1,0 +1,37 @@
+#campo {
+  margin:  0 0 0 15em;
+}
+
+#navlink {
+  display: flex;
+}
+
+#tabela {
+  width: 60%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.voltar_cadastro {
+  text-align: center;
+  margin: 2em 0 0 0;
+}
+
+
+#alert_container {
+  width: 50%;
+  margin: 2em auto;
+}
+
+#formulario {
+  margin: auto;
+  padding: 3em;
+}
+
+#nf {border-radius: 15px;}
+#datavencimento {border-radius: 15px;}
+#datacriacao {border-radius: 15px;}
+#valor {border-radius: 15px;}
+#comprador {border-radius: 15px;}
+#vendedor {border-radius: 15px;}
+#auxestado {border-radius: 15px;}

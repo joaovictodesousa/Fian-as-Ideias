@@ -1,4 +1,4 @@
-![image](https://github.com/joaovictodesousa/Fian-as-Ideias/assets/107226493/824f80b2-a0a4-437a-88f0-e0e462511323)#FIANÇAS
+#FIANÇAS
 
 ![image](https://github.com/joaovictodesousa/Fian-as-Ideias/assets/107226493/52044a74-918c-4bb0-b830-dbb839ca2183)
 

@@ -52,9 +52,9 @@ class RegistroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Cadastro $cadastros)
     {
-        //
+        return view('show', ['cadastros'=> $cadastros]);
     }
 
     /**
@@ -79,7 +79,7 @@ class RegistroController extends Controller
     public function destroy(Cadastro $cadastros)
     {
         $cadastros->delete();
-
+        
         return redirect()->route('index.tabela')->with('danger', 'Registro excluído com sucesso.');
     }
 }

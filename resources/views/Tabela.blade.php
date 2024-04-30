@@ -7,7 +7,7 @@
             {{ __('Finanças') }}
         </h2>
     </x-slot>
-{{-- ---------------------------------- --}}
+    {{-- ---------------------------------- --}}
 
     @if (session('success'))
         <div class="alert alert-success" id="alert_container">
@@ -21,16 +21,16 @@
     @endif
 
     @if (session('danger'))
-    <div class="alert alert-danger" id="alert_container">
-        {{ session('danger') }}
-    </div>
-    <script>
-        setTimeout(function() {
-            document.querySelector('.alert-danger').style.display = 'none';
-        }, {{ session('display_time', 3000) }});
-    </script>
-@endif
-{{-- ---------------------------------- --}}
+        <div class="alert alert-danger" id="alert_container">
+            {{ session('danger') }}
+        </div>
+        <script>
+            setTimeout(function() {
+                document.querySelector('.alert-danger').style.display = 'none';
+            }, {{ session('display_time', 3000) }});
+        </script>
+    @endif
+    {{-- ---------------------------------- --}}
 
 
     <div class="voltar_cadastro">
@@ -43,23 +43,39 @@
                 <table class="table" id="tabela">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>NF</th>
-                            <th>Data da compra</th>
-                            <th>Data do vencimento</th>
+                            <th>Comprador</th>
+                            <th>Vendedor</th>
                             <th>Valor</th>
                             <th>Estado</th>
-                            <th>Ações</th>
+                            <th>Ver mais</th>
+                            <th>Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($Allcadastros as $cadastros)
                             <tr>
+                                <td><b>{{ $cadastros->id }}</b></td>
                                 <td>{{ $cadastros->nf }}</td>
-                                <td>{{ \Carbon\Carbon::parse($cadastros->datavencimento)->format('d/m/Y') }}</td>
-                                <td>{{ \Carbon\Carbon::parse($cadastros->datacriacao)->format('d/m/Y') }}</td>
+                                {{-- <td>{{ \Carbon\Carbon::parse($cadastros->datavencimento)->format('d/m/Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($cadastros->datacriacao)->format('d/m/Y') }}</td> --}}
+                                <td>{{ $cadastros->comprador }}</td>
+                                <td>{{ $cadastros->vendedor }}</td>
                                 <td>R${{ $cadastros->valor }}</td>
                                 <td>{{ $cadastros->Estado->estado }}</td>
-                                <td>@include('components.modal')</td>
+                                <td>
+                                   @include('components.subis.vermais')
+                                   {{-- @include('components.subis.modal') --}}
+                                </td>
+                                <td>
+                                    <form action="{{ route('index.destroy', ['cadastros' => $cadastros->id]) }}"
+                                     method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?')">
+                                     @csrf
+                                     @method('DELETE')
+                                     <button type="submit" class="btn btn-danger">Excluir</button>
+                                 </form>
+                                 </td>
                             </tr>
                         @endforeach
                     </tbody>

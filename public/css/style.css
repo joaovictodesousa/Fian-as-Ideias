@@ -35,3 +35,33 @@
 #comprador {border-radius: 15px;}
 #vendedor {border-radius: 15px;}
 #auxestado {border-radius: 15px;}
+
+
+#container_show {
+  margin: 4em auto;
+  font-size: 20px;
+  width: 30%;
+}
+
+.container_voltar_tabela_show {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.img_voltar {
+  width: 20px;
+}
+
+.vermais_img {
+  width: 20px;
+}
+
+#butaovermais {
+  
+}
+
+.acoes {
+  margin: auto;
+  gap: 1em;
+}

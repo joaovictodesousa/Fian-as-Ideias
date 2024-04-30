@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/tabela', [RegistroController::class, 'tabela'])->name('index.tabela');
     Route::post('/dashboard/store', [RegistroController::class, 'store'])->name('index.store');
     Route::delete('/dashboard/tabela/{cadastros}', [RegistroController::class, 'destroy'])->name('index.destroy');
+    Route::get('/dashboard/tabela/show/{cadastros}', [RegistroController::class, 'show'])->name('index.show');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
